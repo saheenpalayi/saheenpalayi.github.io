@@ -1,12 +1,45 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-PLTZHDP');</script>
+
+<head>
+	<script>
+
+		document.addEventListener('DOMContentLoaded', () => {
+			/** init gtm after 3500 seconds - this could be adjusted */
+			setTimeout(initGTM, 3500);
+		});
+		document.addEventListener('scroll', initGTMOnEvent);
+		document.addEventListener('mousemove', initGTMOnEvent);
+		document.addEventListener('touchstart', initGTMOnEvent);
+		function initGTMOnEvent(event) {
+			initGTM();
+			event.currentTarget.removeEventListener(event.type, initGTMOnEvent); // remove the event listener that got triggered
+		}
+		function initGTM() {
+			if (window.gtmDidInit) {
+				return false;
+			}
+			window.gtmDidInit = true; // flag to ensure script does not get added to DOM more than once.
+			const script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.async = true;
+			script.onload = () => {
+				dataLayer.push({ event: 'gtm.js', 'gtm.start': new Date().getTime(), 'gtm.uniqueEventId': 0 });
+			}; // this part ensures PageViews is always tracked
+			script.src = 'https://www.googletagmanager.com/gtm.js?id=YOUR-GTM-ID-HERE';
+			document.head.appendChild(script);
+		}
+
+	</script>
+	<!-- Google Tag Manager -->
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-PLTZHDP');</script>
 	<!-- End Google Tag Manager -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +49,12 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
@@ -32,7 +65,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -56,228 +89,245 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-	</head>
-	<body>
-		<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLTZHDP"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+</head>
+
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLTZHDP" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 	<div id="colorlib-page">
 		<div class="container-wrap">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<div class="text-center">
-				<div class="author-img" style="background-image: url(images/me.jpg);"></div>
-				<h1 id="colorlib-logo"><a href="index.html">Saheen Palayi</a></h1>
-				<span class="position"><a href="#">Maker/technologist</a> from Kerala</span>
-			</div>
-			
-			<nav id="colorlib-main-menu" role="navigation" class="navbar">
-				<div id="navbar" class="collapse">
+			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
+				aria-expanded="false" aria-controls="navbar"><i></i></a>
+			<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+				<div class="text-center">
+					<div class="author-img" style="background-image: url(images/me.jpg);"></div>
+					<h1 id="colorlib-logo"><a href="index.html">Saheen Palayi</a></h1>
+					<span class="position"><a href="#">Maker/technologist</a> from Kerala</span>
+				</div>
+
+				<nav id="colorlib-main-menu" role="navigation" class="navbar">
+					<div id="navbar" class="collapse">
+						<ul>
+							<li class="active"><a href="#" data-nav-section="home">Home</a></li>
+							<li><a href="#" data-nav-section="about">About</a></li>
+							<li><a href="#" data-nav-section="services">Services</a></li>
+							<li><a href="#" data-nav-section="skills">Skills</a></li>
+							<li><a href="#" data-nav-section="education">Education</a></li>
+							<li><a href="#" data-nav-section="experience">Experience</a></li>
+							<li><a href="#" data-nav-section="work">Work</a></li>
+							<!-- <li><a href="#" data-nav-section="blog">Blog</a></li> -->
+							<li><a href="#" data-nav-section="contact">Contact</a></li>
+						</ul>
+					</div>
+				</nav>
+
+				<div class="colorlib-footer">
+					<!-- <p><small>&copy; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | </small></p> -->
+					<!-- This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.  <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p> -->
 					<ul>
-						<li class="active"><a href="#" data-nav-section="home">Home</a></li>
-						<li><a href="#" data-nav-section="about">About</a></li>
-						<li><a href="#" data-nav-section="services">Services</a></li>
-						<li><a href="#" data-nav-section="skills">Skills</a></li>
-						<li><a href="#" data-nav-section="education">Education</a></li>
-						<li><a href="#" data-nav-section="experience">Experience</a></li>
-						<li><a href="#" data-nav-section="work">Work</a></li>
-						<!-- <li><a href="#" data-nav-section="blog">Blog</a></li> -->
-						<li><a href="#" data-nav-section="contact">Contact</a></li>
+						<li><a href="https://www.facebook.com/saheenpalayi" target="_blank"><i
+									class="icon-facebook2"></i></a></li>
+						<li><a href="https://twitter.com/saheen_palayi" target="_blank"><i
+									class="icon-twitter2"></i></a></li>
+						<li><a href="https://www.instagram.com/saheen_palayi/"><i class="icon-instagram"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/saheenpalayi/" target="_blank"><i
+									class="icon-linkedin2"></i></a></li>
 					</ul>
 				</div>
-			</nav>
 
-			<div class="colorlib-footer">
-				<!-- <p><small>&copy; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | </small></p> -->
-<!-- This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.  <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p> -->
-				<ul>
-					<li><a href="https://www.facebook.com/saheenpalayi" target="_blank"><i class="icon-facebook2"></i></a></li>
-					<li><a href= "https://twitter.com/saheen_palayi" target="_blank"><i class="icon-twitter2"></i></a></li>
-					<li><a href="https://www.instagram.com/saheen_palayi/"><i class="icon-instagram"></i></a></li>
-					<li><a href="https://www.linkedin.com/in/saheenpalayi/" target="_blank"><i class="icon-linkedin2"></i></a></li>
-				</ul>
-			</div>
+			</aside>
 
-		</aside>
-
-		<div id="colorlib-main">
-			<section id="colorlib-hero" class="js-fullheight" data-section="home">
-				<div class="flexslider js-fullheight">
-					<ul class="slides">
-				   	<li style="background-image: url(images/img_9.png);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-					   				<div class="slider-text-inner js-fullheight">
-					   					<div class="desc">
-						   					<h1>Hi! <br>I'm Saheen</h1>
-						   					<!-- <h2>100% html5 bootstrap templates Made by <a href="https://colorlib.com/" target="_blank">colorlib.com</a></h2> -->
-												<p><a href="/files/Saheenresume.pdf" class="btn btn-primary btn-learn">Download CV <i class="icon-download4"></i></a></p>
+			<div id="colorlib-main">
+				<section id="colorlib-hero" class="js-fullheight" data-section="home">
+					<div class="flexslider js-fullheight">
+						<ul class="slides">
+							<li style="background-image: url(images/img_9.png);">
+								<div class="overlay"></div>
+								<div class="container-fluid">
+									<div class="row">
+										<div
+											class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+											<div class="slider-text-inner js-fullheight">
+												<div class="desc">
+													<h1>Hi! <br>I'm Saheen</h1>
+													<!-- <h2>100% html5 bootstrap templates Made by <a href="https://colorlib.com/" target="_blank">colorlib.com</a></h2> -->
+													<p><a href="/files/Saheenresume.pdf"
+															class="btn btn-primary btn-learn">Download CV <i
+																class="icon-download4"></i></a></p>
+												</div>
 											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				   	<li style="background-image: url(images/tech_engineering.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<div class="desc">
-						   					<h1>I am <br>a Technologist</h1>
-												<!-- <h2>100% html5 bootstrap templates Made by <a href="https://colorlib.com/" target="_blank">colorlib.com</a></h2> -->
-												<!-- <p><a class="btn btn-primary btn-learn">View Portfolio <i class="icon-briefcase3"></i></a></p> -->
+										</div>
+									</div>
+								</div>
+							</li>
+							<li style="background-image: url(images/tech_engineering.jpg);">
+								<div class="overlay"></div>
+								<div class="container-fluid">
+									<div class="row">
+										<div
+											class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+											<div class="slider-text-inner">
+												<div class="desc">
+													<h1>I am <br>a Technologist</h1>
+													<!-- <h2>100% html5 bootstrap templates Made by <a href="https://colorlib.com/" target="_blank">colorlib.com</a></h2> -->
+													<!-- <p><a class="btn btn-primary btn-learn">View Portfolio <i class="icon-briefcase3"></i></a></p> -->
+												</div>
 											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				  	</ul>
-			  	</div>
-			</section>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
 
-			<section class="colorlib-about" data-section="about">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="col-md-12">
-									<div class="about-desc">
-										<span class="heading-meta">About Me</span>
-										<h2 class="colorlib-heading">Who Am I?</h2>
-										<p><strong>Hi I'm Saheen Palayi,</strong> a Maker or a Technologist from Kerala, India. Playing or learning with human technologies is one of the main hobbies of mine. I born in an ordinary middle class family. Father is an Electrician and Mother is a house wife.I have 3 sibilings.The main cencentration or hobby of mine is learning something new or doing helpfull DIY projects </p>
-										<!-- <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
+				<section class="colorlib-about" data-section="about">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+									<div class="col-md-12">
+										<div class="about-desc">
+											<span class="heading-meta">About Me</span>
+											<h2 class="colorlib-heading">Who Am I?</h2>
+											<p><strong>Hi I'm Saheen Palayi,</strong> a Maker or a Technologist from
+												Kerala, India. Playing or learning with human technologies is one of the
+												main hobbies of mine. I born in an ordinary middle class family. Father
+												is an Electrician and Mother is a house wife.I have 3 sibilings.The main
+												cencentration or hobby of mine is learning something new or doing
+												helpfull DIY projects </p>
+											<!-- <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
+										<div class="services color-1">
+											<span class="icon2"><i class="icon-bulb"></i></span>
+											<h3>Edutech</h3>
+										</div>
+									</div>
+									<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+										<div class="services color-2">
+											<span class="icon2"><i class="icon-cog-outline"></i></span>
+											<h3>Hardware</h3>
+										</div>
+									</div>
+									<div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
+										<div class="services color-3">
+											<span class="icon2"><i class="icon-code-outline"></i></span>
+											<h3>Coding</h3>
+										</div>
+									</div>
+									<div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
+										<div class="services color-4">
+											<span class="icon2"><i class="icon-phone3"></i></span>
+											<h3>Prototyping</h3>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+										<div class="hire">
+											<h2>I am happy to know you <br>that 100+ projects done sucessfully!</h2>
+											<a href="#" class="btn-hire">Hire me</a>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
-									<div class="services color-1">
-										<span class="icon2"><i class="icon-bulb"></i></span>
+						</div>
+					</div>
+				</section>
+
+
+
+				<section class="colorlib-services" data-section="services">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+								data-animate-effect="fadeInLeft">
+								<span class="heading-meta">What I do?</span>
+								<h2 class="colorlib-heading">Here are some of my expertise</h2>
+							</div>
+						</div>
+						<div class="row row-pt-md">
+							<div class="col-md-4 text-center animate-box">
+								<div class="services color-1">
+									<span class="icon">
+										<i class="icon-bulb"></i>
+									</span>
+									<div class="desc">
 										<h3>Edutech</h3>
+										<p>Learning by using Technologies also making it easier and simple</p>
 									</div>
 								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
-									<div class="services color-2">
-										<span class="icon2"><i class="icon-cog-outline"></i></span>
-										<h3>Hardware</h3>
-									</div>
-								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
-									<div class="services color-3">
-										<span class="icon2"><i class="icon-code-outline"></i></span>
+							</div>
+							<div class="col-md-4 text-center animate-box">
+								<div class="services color-2">
+									<span class="icon">
+										<i class="icon-code-outline"></i>
+									</span>
+									<div class="desc">
 										<h3>Coding</h3>
+										<p>I do provide computer Programing services in C/C++,embedded languages</p>
 									</div>
 								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
-									<div class="services color-4">
-										<span class="icon2"><i class="icon-phone3"></i></span>
+							</div>
+							<div class="col-md-4 text-center animate-box">
+								<div class="services color-3">
+									<span class="icon">
+										<i class="icon-phone3"></i>
+									</span>
+									<div class="desc">
 										<h3>Prototyping</h3>
+										<p>More than 10+ devices designed, some of them still works!</p>
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-									<div class="hire">
-										<h2>I am happy to know you <br>that 100+ projects done sucessfully!</h2>
-										<a href="#" class="btn-hire">Hire me</a>
+							<div class="col-md-4 text-center animate-box">
+								<div class="services color-4">
+									<span class="icon">
+										<i class="icon-layers2"></i>
+									</span>
+									<div class="desc">
+										<h3>STEAM Education</h3>
+										<p>I did mentoring STEm or STEAM Education for school students</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 text-center animate-box">
+								<div class="services color-5">
+									<span class="icon">
+										<i class="icon-spanner-outline"></i>
+									</span>
+									<div class="desc">
+										<h3>DIY Projects</h3>
+										<p>More than 100+ DIY projects completed, the majority of them for learning
+											purposes</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 text-center animate-box">
+								<div class="services color-6">
+									<span class="icon">
+										<i class="icon-printer3"></i>
+									</span>
+									<div class="desc">
+										<h3>3D Printing & CNC</h3>
+										<p>3D printing is type of digital fabrication which help us for faster
+											prototyping</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-
-			
-			<section class="colorlib-services" data-section="services">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">What I do?</span>
-							<h2 class="colorlib-heading">Here are some of my expertise</h2>
-						</div>
-					</div>
-					<div class="row row-pt-md">
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-1">
-								<span class="icon">
-									<i class="icon-bulb"></i>
-								</span>
-								<div class="desc">
-									<h3>Edutech</h3>
-									<p>Learning by using Technologies also making it easier and simple</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-2">
-								<span class="icon">
-									<i class="icon-code-outline"></i>
-								</span>
-								<div class="desc">
-									<h3>Coding</h3>
-									<p>I do provide computer Programing services in C/C++,embedded languages</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-3">
-								<span class="icon">
-									<i class="icon-phone3"></i>
-								</span>
-								<div class="desc">
-									<h3>Prototyping</h3>
-									<p>More than 10+ devices designed, some of them still works!</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-4">
-								<span class="icon">
-									<i class="icon-layers2"></i>
-								</span>
-								<div class="desc">
-									<h3>STEAM Education</h3>
-									<p>I did mentoring STEm or STEAM Education for school students</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-5">
-								<span class="icon">
-									<i class="icon-spanner-outline"></i>
-								</span>
-								<div class="desc">
-									<h3>DIY Projects</h3>
-									<p>More than 100+ DIY projects completed, the majority of them for learning purposes</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-6">
-								<span class="icon">
-									<i class="icon-printer3"></i>
-								</span>
-								<div class="desc">
-									<h3>3D Printing & CNC</h3>
-									<p>3D printing is type of digital fabrication which help us for faster prototyping</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<!-- <div id="colorlib-counter" class="colorlib-counters" style="background-image: url(images/cover_bg_1.jpg);" data-stellar-background-ratio="0.5">
+				<!-- <div id="colorlib-counter" class="colorlib-counters" style="background-image: url(images/cover_bg_1.jpg);" data-stellar-background-ratio="0.5">
 				<div class="overlay"></div>
 				<div class="colorlib-narrow-content">
 					<div class="row">
@@ -303,186 +353,205 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</div>
 			</div> -->
 
-			<section class="colorlib-skills" data-section="skills">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">My Specialty</span>
-							<h2 class="colorlib-heading animate-box">My Skills</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<!-- <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p> -->
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>Electronics & Electrical</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="90"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								    <span>90%</span>
-								  	</div>
-								</div>
+				<section class="colorlib-skills" data-section="skills">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+								data-animate-effect="fadeInLeft">
+								<span class="heading-meta">My Specialty</span>
+								<h2 class="colorlib-heading animate-box">My Skills</h2>
 							</div>
 						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Wood Working & Fabrication</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="70"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-								    <span>70%</span>
-								  	</div>
-								</div>
+						<div class="row">
+							<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+								<!-- <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p> -->
 							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Welding Technology</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="75"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								    <span>75%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>3D Printing & Designing</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="90"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								    <span>90%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>Laser Cutting and CNC Machining</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-3" role="progressbar" aria-valuenow="80"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								    <span>80%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Arduino</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								    <span>90%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>C/C++ Programing</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="70"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-								    <span>70%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>DIY & STEAM Projects</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="90"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								    <span>90%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Electrical Wiring</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-7" role="progressbar" aria-valuenow="100"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:100%">
-								    <span>100%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>PCB Designing and Making</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-8" role="progressbar" aria-valuenow="75"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								    <span>75%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="colorlib-education" data-section="education">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Education</span>
-							<h2 class="colorlib-heading animate-box">Education</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<div class="fancy-collapse-panel">
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									        <h4 class="panel-title">
-									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">FAB Academy - Diploma in Digital Fabrication
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-									         <div class="panel-body">
-									            <div class="row">
-										      		<div class="col-md-6">
-										      			<p>I'm Currently pursuing a postgraduate diploma in Digital Fabrication From Super FABLAB Kochi,Kerala. </p>
-										      		</div>
-										      		<div class="col-md-6">
-										      			<p>FAB Academy is a digital fabrication diploma from FAB Foundation based on MIT's rapid prototyping course MAS 863.Which hosted by Super Fablab Kerala</p>
-										      		</div>
-										      	</div>
-												  <p>All my fab documentations which include assignments ,projects are documented in this <a href="http://fab.academany.org/2021/labs/kochi/students/saheem-palayi/" target="_blank">Saheen's FAB</a> Git LAB pages</p>
-									         </div>
-									    </div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="progress-wrap">
+									<h3>Electronics & Electrical</h3>
+									<div class="progress">
+										<div class="progress-bar color-1" role="progressbar" aria-valuenow="90"
+											aria-valuemin="0" aria-valuemax="100" style="width:90%">
+											<span>90%</span>
+										</div>
 									</div>
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingTwo">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Diploma in Electronics Engineering
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-									        <div class="panel-body">
-									            <div class="row">
-													<div class="col-md-6">
-														<p>I completed my diploma course in Electronics Engineering from Govt.Polytechnic College Perinthalmanna,Kerala. </p>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="progress-wrap">
+									<h3>Wood Working & Fabrication</h3>
+									<div class="progress">
+										<div class="progress-bar color-2" role="progressbar" aria-valuenow="70"
+											aria-valuemin="0" aria-valuemax="100" style="width:70%">
+											<span>70%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="progress-wrap">
+									<h3>Welding Technology</h3>
+									<div class="progress">
+										<div class="progress-bar color-2" role="progressbar" aria-valuenow="75"
+											aria-valuemin="0" aria-valuemax="100" style="width:75%">
+											<span>75%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="progress-wrap">
+									<h3>3D Printing & Designing</h3>
+									<div class="progress">
+										<div class="progress-bar color-2" role="progressbar" aria-valuenow="90"
+											aria-valuemin="0" aria-valuemax="100" style="width:90%">
+											<span>90%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="progress-wrap">
+									<h3>Laser Cutting and CNC Machining</h3>
+									<div class="progress">
+										<div class="progress-bar color-3" role="progressbar" aria-valuenow="80"
+											aria-valuemin="0" aria-valuemax="100" style="width:80%">
+											<span>80%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="progress-wrap">
+									<h3>Arduino</h3>
+									<div class="progress">
+										<div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
+											aria-valuemin="0" aria-valuemax="100" style="width:90%">
+											<span>90%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="progress-wrap">
+									<h3>C/C++ Programing</h3>
+									<div class="progress">
+										<div class="progress-bar color-5" role="progressbar" aria-valuenow="70"
+											aria-valuemin="0" aria-valuemax="100" style="width:70%">
+											<span>70%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="progress-wrap">
+									<h3>DIY & STEAM Projects</h3>
+									<div class="progress">
+										<div class="progress-bar color-6" role="progressbar" aria-valuenow="90"
+											aria-valuemin="0" aria-valuemax="100" style="width:90%">
+											<span>90%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="progress-wrap">
+									<h3>Electrical Wiring</h3>
+									<div class="progress">
+										<div class="progress-bar color-7" role="progressbar" aria-valuenow="100"
+											aria-valuemin="0" aria-valuemax="100" style="width:100%">
+											<span>100%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="progress-wrap">
+									<h3>PCB Designing and Making</h3>
+									<div class="progress">
+										<div class="progress-bar color-8" role="progressbar" aria-valuenow="75"
+											aria-valuemin="0" aria-valuemax="100" style="width:75%">
+											<span>75%</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="colorlib-education" data-section="education">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+								data-animate-effect="fadeInLeft">
+								<span class="heading-meta">Education</span>
+								<h2 class="colorlib-heading animate-box">Education</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+								<div class="fancy-collapse-panel">
+									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+										<div class="panel panel-default">
+											<div class="panel-heading" role="tab" id="headingOne">
+												<h4 class="panel-title">
+													<a data-toggle="collapse" data-parent="#accordion"
+														href="#collapseOne" aria-expanded="true"
+														aria-controls="collapseOne">FAB Academy - Diploma in Digital
+														Fabrication
+													</a>
+												</h4>
+											</div>
+											<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+												aria-labelledby="headingOne">
+												<div class="panel-body">
+													<div class="row">
+														<div class="col-md-6">
+															<p>I'm Currently pursuing a postgraduate diploma in Digital
+																Fabrication From Super FABLAB Kochi,Kerala. </p>
+														</div>
+														<div class="col-md-6">
+															<p>FAB Academy is a digital fabrication diploma from FAB
+																Foundation based on MIT's rapid prototyping course MAS
+																863.Which hosted by Super Fablab Kerala</p>
+														</div>
 													</div>
-													<div class="col-md-6">
-														<p>I was the student coordinator of (IEDC) Entrepreneurship Club of the College. That's where I learned about the entrepreneurship programs and other technologies</p>
+													<p>All my fab documentations which include assignments ,projects are
+														documented in this <a
+															href="http://fab.academany.org/2021/labs/kochi/students/saheem-palayi/"
+															target="_blank">Saheen's FAB</a> Git LAB pages</p>
+												</div>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading" role="tab" id="headingTwo">
+												<h4 class="panel-title">
+													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+														href="#collapseTwo" aria-expanded="false"
+														aria-controls="collapseTwo">Diploma in Electronics Engineering
+													</a>
+												</h4>
+											</div>
+											<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+												aria-labelledby="headingTwo">
+												<div class="panel-body">
+													<div class="row">
+														<div class="col-md-6">
+															<p>I completed my diploma course in Electronics Engineering
+																from Govt.Polytechnic College Perinthalmanna,Kerala.
+															</p>
+														</div>
+														<div class="col-md-6">
+															<p>I was the student coordinator of (IEDC) Entrepreneurship
+																Club of the College. That's where I learned about the
+																entrepreneurship programs and other technologies</p>
+														</div>
 													</div>
 												</div>
-									        </div>
-									    </div>
-									</div>
-									<!-- <div class="panel panel-default">
+											</div>
+										</div>
+										<!-- <div class="panel panel-default">
 									    <div class="panel-heading" role="tab" id="headingTwo">
 									        <h4 class="panel-title">
 									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Bachelor Degree of Computer Science
@@ -513,241 +582,295 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 									    </div>
 									</div> -->
 
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingFour">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Higher Secondary in Computer Science
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-									        <div class="panel-body">
-									            <p>the school was in my hometown called HMY HSS, Manjeri. The Higher Secondary education really helped me to get know about <strong>Computer  programing </strong>which lead me to create my own projects using open source hardware, Robotics.. etc....</p>	
-									        </div>
-									    </div>
-									</div>
+										<div class="panel panel-default">
+											<div class="panel-heading" role="tab" id="headingFour">
+												<h4 class="panel-title">
+													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+														href="#collapseFour" aria-expanded="false"
+														aria-controls="collapseFour">Higher Secondary in Computer
+														Science
+													</a>
+												</h4>
+											</div>
+											<div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+												aria-labelledby="headingFour">
+												<div class="panel-body">
+													<p>the school was in my hometown called HMY HSS, Manjeri. The Higher
+														Secondary education really helped me to get know about
+														<strong>Computer programing </strong>which lead me to create my
+														own projects using open source hardware, Robotics.. etc....
+													</p>
+												</div>
+											</div>
+										</div>
 
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingFive">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Technical High School (Basic Education)
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-									        <div class="panel-body">
-												<p>This school's name is Govt. Technical High School Manjeri, Kerala. It located near my own home in 100 meter Dist. I entered into the school after 7th STD via entrance exams, it was a dream of me at that time. That school, he led me to make a strong foundation of my <strong>Technical career. </strong>The school was awesome I learned welding technology from there.</p>	
-												<p>also I was a member in Junior Red cross club during my studies</p>
-									        </div>
-									    </div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="colorlib-experience" data-section="experience">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Experience</span>
-							<h2 class="colorlib-heading animate-box">Work Experience</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-				         <div class="timeline-centered">
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-
-					               <div class="timeline-icon color-1">
-					                  <i class="icon-pen2"></i>
-					               </div>
-
-					               <div class="timeline-label">
-					                  <h2><a href="#">Mentor @ Foxlab makerspace</a> <span>2017-Present</span></h2>
-					                  <p><a href="http://www.foxlabmakerspace.org/" target="_blank">Foxlabmakerspace</a> is an Non Governmental Organization. also not based on any profits. Foxlab provides Co working spaces for professional, technological support for students or makers in Kerala, located in Malappuram District, Kerala. I'm a mentor here, I helps students to create their DIY Ideas and helps learn about new technologies. .</p>
-					               </div>
-					            </div>
-					         </article>
-
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-2">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Technical Asistant @ Mesmerito</a> <span>2018-2019</span></h2>
-					                  <p><a href="https://www.facebook.com/mesmerito/" target="_blank">Mesmerito</a> was a startup company by a friend of mine name is Vishnu Shivadas. Mesmerito creates 3D printed miniatures of our selves its like 3D selfie replicas. here where I learn more about 3D printing, 3D printers and etc... . I maintained a 3D printing lab of 5 3D printers. also helped them in the research side of the product and its production methods .</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-3">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="https://www.vectorbag.com" target="_blank">3D Designer @ vectorbag.com</a> <span>2019-Present</span></h2>
-					                  <p><a href="https://www.vectorbag.com" target="_blank">VectorBag.com</a> is a vector selling website, initiated by Yasir mullancheri. A friend of mine. I'm contributing as 3D designer.here I post 3D design files that I made </p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-4">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2>Electrician (Freelance ) <span>2015-Present</span></h2>
-									   <p>My father is an electrician, that's helped to learn about his profession which gave me a valuable skill of electrical wiring and maintenance. I works with him, also without him, now I'm an expert in electrical maintenance.the electronics knowledge that I learnedis also making me skilled person in all electrical areas. This is the main job where I get my primary Income </p>
-									</div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-5">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2>Electronics Freelance Servicing and Assembeling  <span>2011-2015</span></h2>
-									  <p>After 7th STD,started freelancing works on electronics devices, servicing and assembling.This all learned by myself and the Internet, other books helped me to do the works... majority of them learned by doing DIY Projects</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-none">
-					               </div>
-					            </div>
-					         </article>
-					      </div>
-					   </div>
-				   </div>
-				</div>
-			</section>
-
-			<section class="colorlib-work" data-section="work">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">My Work</span>
-							<h2 class="colorlib-heading animate-box">Recent Work</h2>
-						</div>
-					</div>
-					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-						<div class="col-md-12">
-							<p class="work-menu"><span><a href="#" class="active">Graphic Design</a></span> <span><a href="#">Web Design</a></span> <span><a href="#">Software</a></span> <span><a href="#">Apps</a></span></p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/img-1.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 01</a></h3>
-										<span>Website</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="project" style="background-image: url(images/img-2.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 02</a></h3>
-										<span>Animation</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInTop">
-							<div class="project" style="background-image: url(images/img-3.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 03</a></h3>
-										<span>Illustration</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInBottom">
-							<div class="project" style="background-image: url(images/img-4.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 04</a></h3>
-										<span>Application</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/img-5.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 05</a></h3>
-										<span>Graphic, Logo</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="project" style="background-image: url(images/img-6.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 06</a></h3>
-										<span>Web Design</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
+										<div class="panel panel-default">
+											<div class="panel-heading" role="tab" id="headingFive">
+												<h4 class="panel-title">
+													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+														href="#collapseFive" aria-expanded="false"
+														aria-controls="collapseFive">Technical High School (Basic
+														Education)
+													</a>
+												</h4>
+											</div>
+											<div id="collapseFive" class="panel-collapse collapse" role="tabpanel"
+												aria-labelledby="headingFive">
+												<div class="panel-body">
+													<p>This school's name is Govt. Technical High School Manjeri,
+														Kerala. It located near my own home in 100 meter Dist. I entered
+														into the school after 7th STD via entrance exams, it was a dream
+														of me at that time. That school, he led me to make a strong
+														foundation of my <strong>Technical career. </strong>The school
+														was awesome I learned welding technology from there.</p>
+													<p>also I was a member in Junior Red cross club during my studies
+													</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box">
-							<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
+				</section>
+
+				<section class="colorlib-experience" data-section="experience">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+								data-animate-effect="fadeInLeft">
+								<span class="heading-meta">Experience</span>
+								<h2 class="colorlib-heading animate-box">Work Experience</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="timeline-centered">
+									<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+										<div class="timeline-entry-inner">
+
+											<div class="timeline-icon color-1">
+												<i class="icon-pen2"></i>
+											</div>
+
+											<div class="timeline-label">
+												<h2><a href="#">Mentor @ Foxlab makerspace</a> <span>2017-Present</span>
+												</h2>
+												<p><a href="http://www.foxlabmakerspace.org/"
+														target="_blank">Foxlabmakerspace</a> is an Non Governmental
+													Organization. also not based on any profits. Foxlab provides Co
+													working spaces for professional, technological support for students
+													or makers in Kerala, located in Malappuram District, Kerala. I'm a
+													mentor here, I helps students to create their DIY Ideas and helps
+													learn about new technologies. .</p>
+											</div>
+										</div>
+									</article>
+
+
+									<article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
+										<div class="timeline-entry-inner">
+											<div class="timeline-icon color-2">
+												<i class="icon-pen2"></i>
+											</div>
+											<div class="timeline-label">
+												<h2><a href="#">Technical Asistant @ Mesmerito</a>
+													<span>2018-2019</span>
+												</h2>
+												<p><a href="https://www.facebook.com/mesmerito/"
+														target="_blank">Mesmerito</a> was a startup company by a friend
+													of mine name is Vishnu Shivadas. Mesmerito creates 3D printed
+													miniatures of our selves its like 3D selfie replicas. here where I
+													learn more about 3D printing, 3D printers and etc... . I maintained
+													a 3D printing lab of 5 3D printers. also helped them in the research
+													side of the product and its production methods .</p>
+											</div>
+										</div>
+									</article>
+
+									<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+										<div class="timeline-entry-inner">
+											<div class="timeline-icon color-3">
+												<i class="icon-pen2"></i>
+											</div>
+											<div class="timeline-label">
+												<h2><a href="https://www.vectorbag.com" target="_blank">3D Designer @
+														vectorbag.com</a> <span>2019-Present</span></h2>
+												<p><a href="https://www.vectorbag.com" target="_blank">VectorBag.com</a>
+													is a vector selling website, initiated by Yasir mullancheri. A
+													friend of mine. I'm contributing as 3D designer.here I post 3D
+													design files that I made </p>
+											</div>
+										</div>
+									</article>
+
+									<article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
+										<div class="timeline-entry-inner">
+											<div class="timeline-icon color-4">
+												<i class="icon-pen2"></i>
+											</div>
+											<div class="timeline-label">
+												<h2>Electrician (Freelance ) <span>2015-Present</span></h2>
+												<p>My father is an electrician, that's helped to learn about his
+													profession which gave me a valuable skill of electrical wiring and
+													maintenance. I works with him, also without him, now I'm an expert
+													in electrical maintenance.the electronics knowledge that I learnedis
+													also making me skilled person in all electrical areas. This is the
+													main job where I get my primary Income </p>
+											</div>
+										</div>
+									</article>
+
+									<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+										<div class="timeline-entry-inner">
+											<div class="timeline-icon color-5">
+												<i class="icon-pen2"></i>
+											</div>
+											<div class="timeline-label">
+												<h2>Electronics Freelance Servicing and Assembeling
+													<span>2011-2015</span>
+												</h2>
+												<p>After 7th STD,started freelancing works on electronics devices,
+													servicing and assembling.This all learned by myself and the
+													Internet, other books helped me to do the works... majority of them
+													learned by doing DIY Projects</p>
+											</div>
+										</div>
+									</article>
+
+									<article class="timeline-entry begin animate-box"
+										data-animate-effect="fadeInBottom">
+										<div class="timeline-entry-inner">
+											<div class="timeline-icon color-none">
+											</div>
+										</div>
+									</article>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<!-- <section class="colorlib-blog" data-section="blog">
+				<section class="colorlib-work" data-section="work">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+								data-animate-effect="fadeInLeft">
+								<span class="heading-meta">My Work</span>
+								<h2 class="colorlib-heading animate-box">Recent Work</h2>
+							</div>
+						</div>
+						<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+							<div class="col-md-12">
+								<p class="work-menu"><span><a href="#" class="active">Graphic Design</a></span> <span><a
+											href="#">Web Design</a></span> <span><a href="#">Software</a></span>
+									<span><a href="#">Apps</a></span>
+								</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="project" style="background-image: url(images/img-1.jpg);">
+									<div class="desc">
+										<div class="con">
+											<h3><a href="work.html">Work 01</a></h3>
+											<span>Website</span>
+											<p class="icon">
+												<span><a href="#"><i class="icon-share3"></i></a></span>
+												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="project" style="background-image: url(images/img-2.jpg);">
+									<div class="desc">
+										<div class="con">
+											<h3><a href="work.html">Work 02</a></h3>
+											<span>Animation</span>
+											<p class="icon">
+												<span><a href="#"><i class="icon-share3"></i></a></span>
+												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInTop">
+								<div class="project" style="background-image: url(images/img-3.jpg);">
+									<div class="desc">
+										<div class="con">
+											<h3><a href="work.html">Work 03</a></h3>
+											<span>Illustration</span>
+											<p class="icon">
+												<span><a href="#"><i class="icon-share3"></i></a></span>
+												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInBottom">
+								<div class="project" style="background-image: url(images/img-4.jpg);">
+									<div class="desc">
+										<div class="con">
+											<h3><a href="work.html">Work 04</a></h3>
+											<span>Application</span>
+											<p class="icon">
+												<span><a href="#"><i class="icon-share3"></i></a></span>
+												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="project" style="background-image: url(images/img-5.jpg);">
+									<div class="desc">
+										<div class="con">
+											<h3><a href="work.html">Work 05</a></h3>
+											<span>Graphic, Logo</span>
+											<p class="icon">
+												<span><a href="#"><i class="icon-share3"></i></a></span>
+												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="project" style="background-image: url(images/img-6.jpg);">
+									<div class="desc">
+										<div class="con">
+											<h3><a href="work.html">Work 06</a></h3>
+											<span>Web Design</span>
+											<p class="icon">
+												<span><a href="#"><i class="icon-share3"></i></a></span>
+												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 animate-box">
+								<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
+											class="icon-reload"></i></a></p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- <section class="colorlib-blog" data-section="blog">
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
@@ -795,74 +918,85 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</div>
 			</section> -->
 
-			<section class="colorlib-contact" data-section="contact">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Get in Touch</span>
-							<h2 class="colorlib-heading">Contact</h2>
+				<section class="colorlib-contact" data-section="contact">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+								data-animate-effect="fadeInLeft">
+								<span class="heading-meta">Get in Touch</span>
+								<h2 class="colorlib-heading">Contact</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<div class="colorlib-feature colorlib-feature-sm animate-box"
+									data-animate-effect="fadeInLeft">
+									<div class="colorlib-icon">
+										<i class="icon-globe-outline"></i>
+									</div>
+									<div class="colorlib-text">
+										<p><a href="#">emspsaheen@gmail.com</a></p>
+										<p><a href="#">saheenmpalayi@gmail.com</a></p>
+									</div>
+								</div>
+
+								<div class="colorlib-feature colorlib-feature-sm animate-box"
+									data-animate-effect="fadeInLeft">
+									<div class="colorlib-icon">
+										<i class="icon-map"></i>
+									</div>
+									<div class="colorlib-text">
+										<p>Palayi house, Karuvambaram west P.O, Manjeri, Dt.Malappuram-676123,
+											Kerala,India</p>
+									</div>
+								</div>
+
+								<div class="colorlib-feature colorlib-feature-sm animate-box"
+									data-animate-effect="fadeInLeft">
+									<div class="colorlib-icon">
+										<i class="icon-phone"></i>
+									</div>
+									<div class="colorlib-text">
+										<p><a href="tel://">+918089918285</a></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-7 col-md-push-1">
+								<div class="row">
+									<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
+										data-animate-effect="fadeInRight">
+										<form name="contactform" method="post"
+											action="https://vectorbag.com/test/saheen/me-master/success.php">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" placeholder="Name">
+											</div>
+											<div class="form-group">
+												<input type="text" name="email" class="form-control"
+													placeholder="Email">
+											</div>
+											<div class="form-group">
+												<input type="text" name="subject" class="form-control"
+													placeholder="Subject">
+											</div>
+											<div class="form-group">
+												<textarea name="message" id="message" cols="30" rows="7"
+													class="form-control" placeholder="message"></textarea>
+											</div>
+											<div class="form-group">
+												<input type="submit" class="btn btn-primary btn-send-message"
+													value="Send Message">
+											</div>
+										</form>
+									</div>
+
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-5">
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-globe-outline"></i>
-								</div>
-								<div class="colorlib-text">
-									<p><a href="#">emspsaheen@gmail.com</a></p>
-									<p><a href="#">saheenmpalayi@gmail.com</a></p>
-								</div>
-							</div>
+				</section>
 
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-map"></i>
-								</div>
-								<div class="colorlib-text">
-									<p>Palayi house, Karuvambaram west P.O, Manjeri, Dt.Malappuram-676123, Kerala,India</p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-phone"></i>
-								</div>
-								<div class="colorlib-text">
-									<p><a href="tel://">+918089918285</a></p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-7 col-md-push-1">
-							<div class="row">
-								<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
-									<form name="contactform" method="post" action="https://vectorbag.com/test/saheen/me-master/success.php">
-										<div class="form-group">
-											<input type="text" name="name" class="form-control" placeholder="Name">
-										</div>
-										<div class="form-group">
-											<input type="text" name="email" class="form-control" placeholder="Email">
-										</div>
-										<div class="form-group">
-											<input type="text" name="subject" class="form-control" placeholder="Subject">
-										</div>
-										<div class="form-group">
-											<textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="message"></textarea>
-										</div>
-										<div class="form-group">
-											<input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
-										</div>
-									</form>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-		</div><!-- end:colorlib-main -->
-	</div><!-- end:container-wrap -->
+			</div><!-- end:colorlib-main -->
+		</div><!-- end:container-wrap -->
 	</div><!-- end:colorlib-page -->
 
 	<!-- jQuery -->
@@ -879,11 +1013,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/owl.carousel.min.js"></script>
 	<!-- Counters -->
 	<script src="js/jquery.countTo.js"></script>
-	
-	
+
+
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
-	</body>
-</html>
+</body>
 
+</html>
