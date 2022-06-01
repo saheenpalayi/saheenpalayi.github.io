@@ -997,6 +997,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 		document.addEventListener('DOMContentLoaded', () => {
 			/** init gtm after 3500 seconds - this could be adjusted */
+			setTimeout(initGTM, 5000);
 		});
 		document.addEventListener('scroll', initGTMOnEvent);
 		document.addEventListener('mousemove', initGTMOnEvent);
@@ -1016,7 +1017,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			script.onload = () => {
 				dataLayer.push({ event: 'gtm.js', 'gtm.start': new Date().getTime(), 'gtm.uniqueEventId': 0 });
 			}; // this part ensures PageViews is always tracked
-			script.src = 'https://www.googletagmanager.com/gtm.js?id=YOUR-GTM-ID-HERE';
+			script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PLTZHDP';
 			document.head.appendChild(script);
 		}
 
