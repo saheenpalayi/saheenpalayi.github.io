@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,13 +23,16 @@
       scroll-behavior: smooth;
       transition: background-color 0.5s ease, color 0.5s ease;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       transition: background-color 0.5s ease, color 0.5s ease;
     }
   </style>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen transition-colors duration-500">
+
+<body
+  class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen transition-colors duration-500">
   <nav class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50 shadow-md transition-colors duration-500">
     <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
       <span class="text-xl font-bold">Saheen</span>
@@ -41,8 +45,10 @@
   </nav>
 
   <div class="max-w-5xl mx-auto px-6 pt-28 pb-12">
-    <section class="bg-gray-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-xl transition-colors duration-500">
-      <img src="./images/saheen.palayi.jpg" alt="Saheen Palayi" class="rounded-full w-40 h-40 border-4 border-white shadow-lg animate-fade-in" />
+    <section
+      class="bg-gray-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-xl transition-colors duration-500">
+      <img src="./images/saheen.palayi.jpg" alt="Saheen Palayi"
+        class="rounded-full w-40 h-40 border-4 border-white shadow-lg animate-fade-in" />
       <div class="text-center md:text-left">
         <h1 class="text-4xl font-extrabold animate-slide-up">Saheen Palayi</h1>
         <p class="text-lg text-gray-400 mt-2">Hardware & IoT Product Designer | Embedded Systems Expert</p>
@@ -53,12 +59,52 @@
     <section id="about" class="mt-24">
       <h2 class="text-2xl font-semibold mb-3 border-b border-gray-600 pb-1">👋 About Me</h2>
       <p class="text-gray-300 leading-relaxed">
-        I’m a passionate hardware tech enthusiast with over 6 years of experience in rapid prototyping, Fab Labs, embedded systems, and digital fabrication. I enjoy building meaningful tech for makers, artists, and innovators. I believe in open-source hardware, community learning, and pushing limits through iteration.
+        I’m a passionate hardware tech enthusiast with over 6 years of experience in rapid prototyping, Fab Labs,
+        embedded systems, and digital fabrication. I enjoy building meaningful tech for makers, artists, and innovators.
+        I believe in open-source hardware, community learning, and pushing limits through iteration.
       </p>
     </section>
 
     <section id="projects" class="mt-24">
-      <h2 class="text-2xl font-semibold mb-3 border-b border-gray-600 pb-1">🚀 Featured Projects</h2>
+      <h2 class="text-2xl font-semibold mb-6 border-b border-gray-600 pb-1">🚀 Featured Projects</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Example Project 1 -->
+        <div class="bg-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300">
+          <img src="./images/plant-monitor.jpg" alt="IoT Plant Monitor" class="rounded-xl mb-4">
+          <h3 class="text-xl font-semibold">IoT Plant Monitor</h3>
+          <p class="text-gray-400 text-sm mt-1">ESP32-based soil moisture system that auto-waters plants and logs data.
+          </p>
+          <div class="mt-2 text-xs text-gray-500">Tags: IoT • ESP32 • Sensors</div>
+          <a href="https://www.notion.so/your-notion-link" target="_blank"
+            class="inline-block mt-4 text-blue-400 hover:underline">Read More →</a>
+        </div>
+
+        <!-- Example Project 2 -->
+        <div class="bg-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300">
+          <img src="./images/cnc-controller.jpg" alt="CNC Controller" class="rounded-xl mb-4">
+          <h3 class="text-xl font-semibold">ESP32 CNC Controller</h3>
+          <p class="text-gray-400 text-sm mt-1">Custom PCB and firmware to control stepper motors for CNC machines.</p>
+          <div class="mt-2 text-xs text-gray-500">Tags: PCB • Firmware • GRBL</div>
+          <a href="https://www.notion.so/your-notion-link" target="_blank"
+            class="inline-block mt-4 text-blue-400 hover:underline">Read More →</a>
+        </div>
+
+        <!-- Example Project 3 -->
+        <div class="bg-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300">
+          <img src="./images/nfc-reader.jpg" alt="USB NFC Tag Reader" class="rounded-xl mb-4">
+          <h3 class="text-xl font-semibold">USB NFC Tag Reader</h3>
+          <p class="text-gray-400 text-sm mt-1">ATtiny1614 + MFRC522 for fast tag scanning with USB serial interface.
+          </p>
+          <div class="mt-2 text-xs text-gray-500">Tags: ATtiny • NFC • Hardware API</div>
+          <a href="https://www.notion.so/your-notion-link" target="_blank"
+            class="inline-block mt-4 text-blue-400 hover:underline">Read More →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="Others" class="mt-24">
+      <h2 class="text-2xl font-semibold mb-3 border-b border-gray-600 pb-1">🚀 Other Documentations</h2>
       <ul class="space-y-3 text-blue-400">
         <li><a href="https://github.com/saheenpalayi" class="hover:underline">🔧 GitHub – Open Hardware Projects</a></li>
         <!-- <li><a href="https://www.behance.net/saheen" class="hover:underline">🎨 Behance – Product Design & UI/UX</a></li> -->
@@ -66,12 +112,18 @@
       </ul>
     </section>
 
+
     <section id="connect" class="mt-24">
       <h2 class="text-2xl font-semibold mb-3 border-b border-gray-600 pb-1">📱 Connect With Me</h2>
       <div class="flex gap-6 mt-4">
-        <a href="https://linkedin.com/in/saheenpalayi" class="hover:scale-110 transition-transform"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6" alt="LinkedIn" /></a>
-        <a href="https://instagram.com/saheen_palayi" class="hover:scale-110 transition-transform"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="w-6 h-6" alt="Instagram" /></a>
-        <a href="mailto:saheenpalayi@gmail.com" class="hover:scale-110 transition-transform"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" class="w-6 h-6" alt="Email" /></a>
+        <a href="https://linkedin.com/in/saheenpalayi" class="hover:scale-110 transition-transform"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6"
+            alt="LinkedIn" /></a>
+        <a href="https://instagram.com/saheen_palayi" class="hover:scale-110 transition-transform"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="w-6 h-6"
+            alt="Instagram" /></a>
+        <a href="mailto:saheenpalayi@gmail.com" class="hover:scale-110 transition-transform"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" class="w-6 h-6" alt="Email" /></a>
       </div>
     </section>
 
@@ -84,17 +136,33 @@
     .animate-fade-in {
       animation: fadeIn 1.5s ease-out both;
     }
+
     .animate-slide-up {
       animation: slideUp 1.5s ease-out both;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
+
     @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </body>
+
 </html>
