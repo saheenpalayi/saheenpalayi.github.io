@@ -9,161 +9,132 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4/reset.css" />
-  <script type="tailwind-config">
-    export default {
-      darkMode: 'class'
-    }
-  </script>
-  <script type="module">
-    import 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4';
-  </script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-      transition: background-color 0.5s ease, color 0.5s ease;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      transition: background-color 0.5s ease, color 0.5s ease;
-    }
-  </style>
+  <link rel="icon" href="./images/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
-<body
-  class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen transition-colors duration-500">
-  <nav class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50 shadow-md transition-colors duration-500">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-      <span class="text-xl font-bold">Saheen</span>
-      <div class="space-x-4">
-        <a href="#about" class="hover:text-blue-400">About</a>
-        <a href="#projects" class="hover:text-blue-400">Projects</a>
-        <a href="#connect" class="hover:text-blue-400">Connect</a>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#">Saheen</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="https://projects.saheenpalayi.com/">Projects</a>
+        <a href="#connect">Connect</a>
       </div>
     </div>
   </nav>
 
-  <div class="max-w-5xl mx-auto px-6 pt-28 pb-12">
-    <section
-      class="bg-gray-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-xl transition-colors duration-500">
-      <img src="./images/saheen.palayi.jpg" alt="Saheen Palayi"
-        class="rounded-full w-40 h-40 border-4 border-white shadow-lg animate-fade-in" />
-      <div class="text-center md:text-left">
-        <h1 class="text-4xl font-extrabold animate-slide-up">Saheen Palayi</h1>
-        <p class="text-lg text-gray-400 mt-2">Hardware & IoT Product Designer | Embedded Systems Expert</p>
-        <p class="text-sm text-gray-500 mt-1">📍 Kochi, India</p>
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="intro-title">
+      <img src="./images/saheen.palayi.jpg" alt="Saheen Palayi" class="profile-image" />
+      <div class="hero-copy">
+        <h1 id="intro-title">Saheen Palayi</h1>
+        <p class="role">Hardware &amp; IoT Product Designer | Embedded Systems Expert</p>
+        <p class="location">Kochi, India</p>
       </div>
     </section>
 
-    <section id="about" class="mt-24">
-      <h2 class="text-2xl font-semibold mb-3 border-b border-gray-600 pb-1">👋 About Me</h2>
-      <p class="text-gray-300 leading-relaxed">
-        I’m a passionate hardware tech enthusiast with over 6 years of experience in rapid prototyping, Fab Labs,
+    <section id="about" class="content-section">
+      <h2>About Me</h2>
+      <p>
+        I'm a passionate hardware tech enthusiast with over 6 years of experience in rapid prototyping, Fab Labs,
         embedded systems, and digital fabrication. I enjoy building meaningful tech for makers, artists, and innovators.
         I believe in open-source hardware, community learning, and pushing limits through iteration.
       </p>
     </section>
 
-    <section id="projects" class="mt-24">
-      <h2 class="text-2xl font-semibold mb-6 border-b border-gray-600 pb-1">🚀 Featured Projects</h2>
+    <section id="projects" class="content-section">
+      <h2>Featured Projects</h2>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Example Project 1 -->
-        <!-- <div class="bg-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300">
-          <img src="./images/plant-monitor.jpg" alt="IoT Plant Monitor" class="rounded-xl mb-4">
-          <h3 class="text-xl font-semibold">IoT Plant Monitor</h3>
-          <p class="text-gray-400 text-sm mt-1">ESP32-based soil moisture system that auto-waters plants and logs data.
+      <div class="project-grid">
+        <article class="project-card">
+          <img class="project-thumbnail"
+            src="https://hackster.imgix.net/uploads/attachments/1894753/_hHuP6TOsAB.blob?auto=compress%2Cformat&w=900&h=675&fit=min"
+            alt="PocketMesh Bank project thumbnail" loading="lazy">
+          <div class="project-meta">IoT Product Design</div>
+          <h3>PocketMesh Bank</h3>
+          <p>
+            Everyday power bank concept with an integrated Meshtastic node for off-grid LoRa messaging, GPS sharing,
+            and emergency communication.
           </p>
-          <div class="mt-2 text-xs text-gray-500">Tags: IoT • ESP32 • Sensors</div>
-          <a href="https://www.notion.so/your-notion-link" target="_blank"
-            class="inline-block mt-4 text-blue-400 hover:underline">Read More →</a>
-        </div> -->
+          <div class="project-tags">Meshtastic - LoRa - Product Design</div>
+          <div class="project-actions">
+            <a href="https://www.hackster.io/saheenpalayi/pocketmesh-bank-an-everyday-power-bank-meshtastic-node-20202b"
+              target="_blank" rel="noreferrer">Hackster.io Doc</a>
+          </div>
+        </article>
 
-        <!-- Example Project 2 -->
-        <!-- <div class="bg-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300">
-          <img src="./images/cnc-controller.jpg" alt="CNC Controller" class="rounded-xl mb-4">
-          <h3 class="text-xl font-semibold">ESP32 CNC Controller</h3>
-          <p class="text-gray-400 text-sm mt-1">Custom PCB and firmware to control stepper motors for CNC machines.</p>
-          <div class="mt-2 text-xs text-gray-500">Tags: PCB • Firmware • GRBL</div>
-          <a href="./Sundkeys_gerber.zip" target="_blank"
-            class="inline-block mt-4 text-blue-400 hover:underline">Read More →</a>
-        </div> -->
-
-        <!-- Example Project 3 -->
-        <!-- <div class="bg-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300">
-          <img src="./images/nfc-reader.jpg" alt="USB NFC Tag Reader" class="rounded-xl mb-4">
-          <h3 class="text-xl font-semibold">USB NFC Tag Reader</h3>
-          <p class="text-gray-400 text-sm mt-1">ATtiny1614 + MFRC522 for fast tag scanning with USB serial interface.
+        <article class="project-card">
+          <img class="project-thumbnail"
+            src="https://raw.githubusercontent.com/wiki/fabalabkerala/gerber2png/uploads/Images/eagle-pcb-example.jpeg"
+            alt="Gerber2PNG project thumbnail" loading="lazy">
+          <div class="project-meta">Fabrication Software</div>
+          <h3>Gerber2PNG</h3>
+          <p>
+            Browser-based tool for converting Gerber exports into clean monochrome PNG files for FabMods and PCB
+            milling workflows.
           </p>
-          <div class="mt-2 text-xs text-gray-500">Tags: ATtiny • NFC • Hardware API</div>
-          <a href="https://www.notion.so/your-notion-link" target="_blank"
-            class="inline-block mt-4 text-blue-400 hover:underline">Read More →</a>
-        </div>
-      </div> -->
+          <div class="project-tags">React - Gerber - Fab Lab Workflow</div>
+          <div class="project-actions">
+            <a href="https://gerber2png.fablabkerala.in/" target="_blank" rel="noreferrer">Open Tool</a>
+            <a href="https://github.com/fabalabkerala/gerber2png/wiki" target="_blank" rel="noreferrer">Wiki</a>
+          </div>
+        </article>
+        
+        <article class="project-card">
+          <img class="project-thumbnail"
+            src="https://raw.githubusercontent.com/saheenpalayi/NeoPI_Wireless/main/Images/NeoPI-W-v1.0.jpg"
+            alt="NeoPI Wireless project thumbnail" loading="lazy">
+          <div class="project-meta">CNC Controller</div>
+          <h3>NeoPI Wireless</h3>
+          <p>
+            ESP32-based wireless controller for 3-axis PCB milling machines, developed around the FAB Neo / Pico V2
+            machine work with Rahul S Rajan.
+          </p>
+          <div class="project-tags">ESP32 - CNC - PCB Milling</div>
+          <div class="project-actions">
+            <a href="https://github.com/saheenpalayi/NeoPI_Wireless" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://fab.cba.mit.edu/classes/865.21/people/rahul/PicoV2/" target="_blank" rel="noreferrer">
+              Pico V2
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <a class="project-cta" href="https://projects.saheenpalayi.com/" target="_blank" rel="noreferrer">
+        Explore Saheen's Doc
+      </a>
     </section>
 
-    <section id="Others" class="mt-24">
-      <h2 class="text-2xl font-semibold mb-3 border-b border-gray-600 pb-1">🚀 Other Documentations</h2>
-      <ul class="space-y-3 text-blue-400">
-        <li><a href="https://github.com/saheenpalayi" class="hover:underline">🔧 GitHub – Open Hardware Projects</a></li>
-        <!-- <li><a href="https://www.behance.net/saheen" class="hover:underline">🎨 Behance – Product Design & UI/UX</a></li> -->
-        <li><a href="https://fabacademy.org/2021/labs/kochi/students/saheem-palayi/" class="hover:underline">📘 Fab Academy Portfolio</a></li>
-         <li><a href="https://www.hackster.io/saheenpalayi" class="hover:underline">hackster.io</a></li>
+    <section id="others" class="content-section">
+      <h2>Other Documentations</h2>
+      <ul class="link-list">
+        <li><a href="https://github.com/saheenpalayi">GitHub - Open Hardware Projects</a></li>
+        <li><a href="https://fabacademy.org/2021/labs/kochi/students/saheem-palayi/">Fab Academy Portfolio</a></li>
+        <li><a href="https://www.hackster.io/saheenpalayi">Hackster.io</a></li>
       </ul>
     </section>
 
-
-    <section id="connect" class="mt-24">
-      <h2 class="text-2xl font-semibold mb-3 border-b border-gray-600 pb-1">📱 Connect With Me</h2>
-      <div class="flex gap-6 mt-4">
-        <a href="https://linkedin.com/in/saheenpalayi" class="hover:scale-110 transition-transform"><img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6"
-            alt="LinkedIn" /></a>
-        <a href="https://instagram.com/saheen_palayi" class="hover:scale-110 transition-transform"><img
-            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="w-6 h-6"
-            alt="Instagram" /></a>
-        <a href="mailto:saheenpalayi@gmail.com" class="hover:scale-110 transition-transform"><img
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" class="w-6 h-6" alt="Email" /></a>
+    <section id="connect" class="content-section">
+      <h2>Connect With Me</h2>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/saheenpalayi" aria-label="LinkedIn">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="" />
+        </a>
+        <a href="https://instagram.com/saheen_palayi" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="" />
+        </a>
+        <a href="mailto:saheenpalayi@gmail.com" aria-label="Email">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="" />
+        </a>
       </div>
     </section>
+  </main>
 
-    <footer class="text-center text-sm text-gray-500 mt-24 transition-colors duration-500">
-      &copy; 2025 Saheen Palayi — Built with 💡 in Kerala
-    </footer>
-  </div>
-
-  <style>
-    .animate-fade-in {
-      animation: fadeIn 1.5s ease-out both;
-    }
-
-    .animate-slide-up {
-      animation: slideUp 1.5s ease-out both;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+  <footer class="site-footer">
+    &copy; 2026 Saheen Palayi - Built with care in Kerala
+  </footer>
 </body>
 
 </html>
