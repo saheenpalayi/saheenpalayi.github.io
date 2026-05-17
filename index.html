@@ -10,17 +10,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="icon" href="./images/favicon.ico" sizes="any">
+  <script>
+    (() => {
+      const storageKey = "saheen-theme";
+
+      try {
+        const savedTheme = localStorage.getItem(storageKey);
+        const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="./styles.css" />
+  <script src="./script.js" defer></script>
 </head>
 
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a class="brand" href="#">Saheen</a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="https://projects.saheenpalayi.com/">Projects</a>
-        <a href="#connect">Connect</a>
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="https://projects.saheenpalayi.com/">Projects</a>
+          <a href="#connect">Connect</a>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4.6" />
+            <path d="M12 2.8v2.1" />
+            <path d="M12 19.1v2.1" />
+            <path d="M4.9 4.9l1.5 1.5" />
+            <path d="M17.6 17.6l1.5 1.5" />
+            <path d="M2.8 12h2.1" />
+            <path d="M19.1 12h2.1" />
+            <path d="M4.9 19.1l1.5-1.5" />
+            <path d="M17.6 6.4l1.5-1.5" />
+          </svg>
+          <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M20.99 13.53A8.5 8.5 0 0 1 10.47 3.01 9 9 0 1 0 20.99 13.53Z" />
+          </svg>
+        </button>
       </div>
     </div>
   </nav>
@@ -102,7 +134,7 @@
         </article>
       </div>
 
-      <a class="project-cta" href="https://projects.saheenpalayi.com/" target="_blank" rel="noreferrer">
+      <a class="project-cta" href="https://projects.saheenpalayi.com/"  rel="noreferrer">
         Explore Saheen's Doc
       </a>
     </section>
